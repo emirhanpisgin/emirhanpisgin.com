@@ -10,7 +10,7 @@ export default function Home() {
                 <div className="text-lg animate-slide-in [--slide-in-delay:1200ms] duration-500 opacity-0">
                     Self-Study Web Developer from Turkey
                 </div>
-                <div className="flex flex-col items-center animate-slide-in [--slide-in-delay:1400ms] duration-500 opacity-0">
+                <div className="flex flex-col items-center animate-slide-in [--slide-in-delay:1400ms] duration-500 opacity-0 mt-6">
                     Socials
                     <div className="flex flex-col *:flex *:items-center *:gap-2">
                         <SocialLink href="https://www.youtube.com/@emirhanpisgin" src="youtube.svg">
