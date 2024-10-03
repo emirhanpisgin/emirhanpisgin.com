@@ -40,7 +40,7 @@ export default function TypeWriter({ text, duration, onWritingEnd, className, ..
                 onWritingEnd();
             }, durationMs);
         }
-    }, [text, duration, onWritingEnd]);
+    }, []);
 
     return (
         <div className={cn("relative flex w-min whitespace-pre-wrap", className)} {...props}>
