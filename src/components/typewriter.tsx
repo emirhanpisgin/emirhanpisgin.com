@@ -19,23 +19,13 @@ export default function TypeWriter({ text, duration, onWritingEnd, className, ..
         const durationMs = duration * 1000;
 
         for (let i = 0; i < text.length; i++) {
-            const charSpeed = (durationMs / text.length) * (i + 1);
-            let char = text[i];
-
-            if (char === " ") {
-                char += text[i + 1];
-            } else if (text[i - 1] === " ") {
-                continue;
-            }
+            const charSpeed = (durationMs / text.length) * i;
+            const char = text[i] === " " ? "&nbsp;" : text[i];
 
             setTimeout(() => {
                 if (!displayRef.current) return;
 
-                if (i === 0) {
-                    displayRef.current.innerText = char;
-                } else {
-                    displayRef.current.innerText += char;
-                }
+                displayRef.current.innerHTML += char;
             }, charSpeed);
         }
 
@@ -48,9 +38,9 @@ export default function TypeWriter({ text, duration, onWritingEnd, className, ..
         if (onWritingEnd) {
             setTimeout(() => {
                 onWritingEnd();
-            }, duration * 1000);
+            }, durationMs);
         }
-    }, []);
+    }, [text, duration, onWritingEnd]);
 
     return (
         <div className={cn("relative flex w-min whitespace-pre-wrap", className)} {...props}>
